@@ -45,11 +45,9 @@ final class HealthSurveyViewController: UIViewController {
     }
     
     @IBAction func nextQuestionButtonTapped(_ sender: UIButton) {
-        
         let currentQuestion = testData[currentQuestionIndex]
         let selectedOption = answerSegmentedControl.selectedSegmentIndex
         let options = currentQuestion.options
-        
         
         if selectedOption == UISegmentedControl.noSegment {
             showSelectionAlert()
@@ -103,7 +101,6 @@ final class HealthSurveyViewController: UIViewController {
         currentQuestionIndex = 0
         totalScore = 0
         updateQuestion()
-        nextQuestionButton.isHidden = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
