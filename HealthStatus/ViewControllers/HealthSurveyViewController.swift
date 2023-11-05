@@ -30,7 +30,6 @@ final class HealthSurveyViewController: UIViewController {
     
     private func updateQuestion() {
         guard currentQuestionIndex < testData.count else {
-            nextQuestionButton.isHidden = true
             return
         }
         
@@ -43,7 +42,6 @@ final class HealthSurveyViewController: UIViewController {
         for (index, option) in currentOptions.enumerated() {
             answerSegmentedControl.insertSegment(withTitle: option, at: index, animated: false)
         }
-        answerSegmentedControl.sizeToFit()
     }
     
     @IBAction func nextQuestionButtonTapped(_ sender: UIButton) {
@@ -52,7 +50,10 @@ final class HealthSurveyViewController: UIViewController {
         let selectedOption = answerSegmentedControl.selectedSegmentIndex
         let options = currentQuestion.options
         
-        if selectedOption >= 0 && selectedOption < options.count {
+        
+        if selectedOption == UISegmentedControl.noSegment {
+            showSelectionAlert()
+        } else if selectedOption >= 0 && selectedOption < options.count {
             let selectedOptionText = options[selectedOption]
             
             let score = calculateScore(selectedOptionText)
@@ -68,6 +69,13 @@ final class HealthSurveyViewController: UIViewController {
                 updateQuestion()
             }
         }
+    }
+    
+    private func showSelectionAlert() {
+        let alertController = UIAlertController(title: "Предупреждение", message: "Пожалуйста, выберите опцию", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     private func calculateScore(_ option: String) -> Int {
