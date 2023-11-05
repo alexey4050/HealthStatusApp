@@ -29,11 +29,3 @@ func getQuestion() -> [TextData] {
     return questions
 }
 
-//enum AnswerOption: Int {
-//    case excellent, inEveryMeal, nineToNetHour, neverMissTraining
-//    case veryGood, everyDay, sevenToNineHour
-//    case good, severalTimesAWeek, fiveToSevenHour
-//    case satisfactory, onceAWeek, lessThsnHour
-//    case poor, never
-//}
-

@@ -69,22 +69,7 @@ final class HealthSurveyViewController: UIViewController {
             }
         }
     }
-    //    private func calculateScore(_ score: AnswerOption) -> Int {
-    //        var score = 0
-    //
-    //        switch option {
-    //        case .excellent, .inEveryMeal, .nineToNetHour, .neverMissTraining:
-    //            score += 5
-    //        case .veryGood, .everyDay, .sevenToNineHour:
-    //            score += 4
-    //        case .good, .severalTimesAWeek, .fiveToSevenHour:
-    //            score += 3
-    //        case .satisfactory, .onceAWeek, .lessThanHour:
-    //            score += 2
-    //        case .poor, .never:
-    //            score += 1
-    //        }
-    //        return score
+    
     private func calculateScore(_ option: String) -> Int {
         var score = 0
         
@@ -111,7 +96,6 @@ final class HealthSurveyViewController: UIViewController {
         totalScore = 0
         updateQuestion()
         nextQuestionButton.isHidden = false
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

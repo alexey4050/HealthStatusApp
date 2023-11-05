@@ -17,7 +17,6 @@ final class AuthorsTableViewController: UITableViewController {
     }
     
     // MARK: - TableViewDataSources
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         2
     }

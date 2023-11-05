@@ -21,7 +21,6 @@ final class ResultViewController: UIViewController {
         titleLabel.textColor = UIColor.red
         totalScoreLabel.text = "\(totalScore)"
         getResult()
-        
     }
     
     private func getResult() {
